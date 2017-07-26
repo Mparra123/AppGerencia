@@ -11,6 +11,9 @@ using SQLite;
 
 namespace AppGerencia
 {
+
+
+    //shit just practice
     [Activity(Label = "App Avaluos 2.0", MainLauncher = true, Icon = "@drawable/Document")]
     public class MainActivity : Activity
     {
