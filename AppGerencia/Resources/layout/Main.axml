@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txtUserName"
-        android:hint="Enter Name"
+        android:hint="UserName"
         android:focusable="true"
         android:textColorHighlight="@android:color/background_light"
         android:textColorHint="@android:color/background_light"
@@ -69,5 +69,8 @@
         android:layout_alignEnd="@+id/editText"
         android:textColorHint="@android:color/background_light"
         android:hint="Password"
-        android:layout_above="@id/txtUserName" />
+        android:layout_above="@id/txtUserName"
+        android:layout_marginTop="46dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

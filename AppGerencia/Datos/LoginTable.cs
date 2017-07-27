@@ -12,13 +12,15 @@ using SQLite;
 
 namespace AppGerencia
 {
+
+    [Table("Usuarios")]
     public class LoginTable
     {
 
 
-        [PrimaryKey, AutoIncrement, Column("_idTabla")]
+        [PrimaryKey, AutoIncrement, Column("_id")]
 
-        public int idTabla { get; set; }
+        public int id { get; set; }
         [MaxLength(25)]
 
         public string cedula { get; set; }

@@ -103,7 +103,7 @@ namespace AppGerencia
 			public const int txtCedulaR = 2131034122;
 			
 			// aapt resource value: 0x7f05000b
-			public const int txtNombreRegistro = 2131034123;
+			public const int txtNombreR = 2131034123;
 			
 			// aapt resource value: 0x7f050008
 			public const int txtPassword = 2131034120;
@@ -112,7 +112,7 @@ namespace AppGerencia
 			public const int txtPasswordR = 2131034125;
 			
 			// aapt resource value: 0x7f05000e
-			public const int txtRoleRegister = 2131034126;
+			public const int txtRoleR = 2131034126;
 			
 			// aapt resource value: 0x7f050003
 			public const int txtUserName = 2131034115;

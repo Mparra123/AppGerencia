@@ -43,8 +43,9 @@ namespace AppGerencia
 
             var output = "";
             output += "Creacion base datos si no existe";
-            string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "User1.db3");// create new database
+            string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "User2.db3");// create new database
             var db = new SQLite.SQLiteConnection(dpPath);
+            
             output += "\n DataBase Created....";
             
             return output;
@@ -80,16 +81,16 @@ namespace AppGerencia
             try
             {
                 string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal)
-                    , "User1.db3");
+                    , "User2.db3");
 
                 var db = new SQLite.SQLiteConnection(dpPath);
                 var data = db.Table<LoginTable>();
                 var data1 = data.Where(x => x.cedula == txtsign.Text &&
-                x.userpassw == txtpassw.Text &&x.role == "1").FirstOrDefault();// validacion
+                x.userpassw == txtpassw.Text &&x.role.StartsWith("1")|| x.role.StartsWith("2")).FirstOrDefault();// validacion
                 
                 if (data1 !=null)// perito
                 {
-
+                    Console.WriteLine("Si hay gente");
                     if (data1.role=="1")
                     {
                         Toast.MakeText(this, "Login Success Perito", ToastLength.Short).Show();
@@ -101,6 +102,7 @@ namespace AppGerencia
                         Toast.MakeText(this, "Login Success Usuario Normal", ToastLength.Short).Show();
                         //var intent = new Intent(this, typeof(homeActivity));
                         //StartActivity(intent);
+                        Console.WriteLine("Usuario Normal");
                     }
                     
                     
