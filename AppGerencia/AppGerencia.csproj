@@ -53,9 +53,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
-    <Reference Include="Xamarin.Auth.Android">
-      <HintPath>..\Components\xamarin.auth-1.2.3.1\lib\android\Xamarin.Auth.Android.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\LoginTable.cs" />
