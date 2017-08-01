@@ -86,7 +86,7 @@ namespace AppGerencia
                 var db = new SQLite.SQLiteConnection(dpPath);
                 var data = db.Table<LoginTable>();
                 var data1 = data.Where(x => x.cedula == txtsign.Text &&
-                x.userpassw == txtpassw.Text &&x.role.StartsWith("1")|| x.role.StartsWith("2")).FirstOrDefault();// validacion
+                x.userpassw == txtpassw.Text ).FirstOrDefault();// validacion
                 
                 if (data1 !=null)// perito
                 {
@@ -114,7 +114,7 @@ namespace AppGerencia
                     
                 }
 
-
+                data1 = null;
 
             }
             catch (Exception ex)
