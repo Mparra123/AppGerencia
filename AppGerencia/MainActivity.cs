@@ -83,7 +83,46 @@ namespace AppGerencia
             linkendInButton.Click += LinkendInButton_Click;
         }
 
-       
+
+
+
+        private void LinkendInButton_Click(object sender, EventArgs e)
+        {
+            var auth = new OAuth2Authenticator
+            (
+                clientId: "788gtml82m0qbv",
+                clientSecret: "loiTg5Rebyx6oa7v",
+                scope: "r_basicprofile",
+                authorizeUrl: new System.Uri("https://www.linkedin.com/uas/oauth2/authorization"),
+                redirectUrl: new System.Uri("https://www.youtube.com/"),
+                accessTokenUrl: new System.Uri("htpps://www.linkedin.com/uas/bauth2/accessToken")
+             );
+            auth.Completed += LinkedinAuth_CompletedAsync;
+            var ui = auth.GetUI(this);
+            StartActivity(ui);
+        }
+
+
+        private async void LinkedinAuth_CompletedAsync(object sender, AuthenticatorCompletedEventArgs e)
+        {
+            if (e.IsAuthenticated)
+            {
+                var request = new OAuth2Request("GET", new System.Uri("https://appi.linkedin.com/v1/people/~:(id,firstName,lastName,) ?" + "format=json" + "&oauth2_access_token=" + e.Account.Properties["access_token"]),
+
+
+                    null, e.Account);
+
+                var linkedinresponse = await request.GetResponseAsync();
+                var json = linkedinresponse.GetResponseText();
+                //var linkedinUser = JsonConvert.DeserializeObject<LinkedinUser>(json);
+                //var name = linkedinUser.FirstName + "" + linkedinUser.lastName;
+                //var id = linkedinUser.Id;
+
+            }
+        }
+
+
+
         private void FacebookButton_Click(object sender, EventArgs e)
         {
             var auth = new OAuth2Authenticator(
