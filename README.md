@@ -1,3 +1,3 @@
 # AppGerencia
 App gerencia
-This is a simlation of appraisals app. 
+This is a simulation of appraisals app. 
