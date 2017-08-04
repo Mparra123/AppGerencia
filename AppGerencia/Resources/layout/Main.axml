@@ -1,32 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:gridSpec="0|8|#0093eeff|K:#ee8700ff:16,l:72,l:16,r|S:#83ee00ff:16,0,l:16,56,l:16,0,r">
+<!--tools:context=".MainActivity">  somthing important-->
     <TextView
-        android:text="Avaluos app"
+        android:text="Login-Avaluos app"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textview"
         android:textSize="35dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="6dp" />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtUserName"
-        android:hint="UserName"
-        android:focusable="true"
-        android:textColorHighlight="@android:color/background_light"
-        android:textColorHint="@android:color/background_light"
-        android:layout_marginTop="46dp"
-        android:layout_below="@+id/imageView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_margin="6dp"
+        android:layout_x="40dp"
+        android:layout_y="20dp" />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,26 +25,26 @@
         android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"
         android:layout_margin="25dp"
-        android:layout_marginEnd="20dp" />
-    <Button
+        android:layout_marginEnd="20dp"
+        android:layout_x="140dp"
+        android:layout_y="70dp" />
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="login"
-        android:id="@+id/btnLogin"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/textview"
-        android:layout_toStartOf="@+id/textview"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="150dp" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        android:id="@+id/btnRegistroInicio"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/textview"
-        android:layout_toEndOf="@+id/textview"
-        android:layout_marginBottom="150dp" />
+        android:id="@+id/txtUserName"
+        android:hint="UserName"
+        android:focusable="true"
+        android:textColorHighlight="@android:color/background_light"
+        android:textColorHint="@android:color/background_light"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_y="180dp"
+        android:ems="10"
+        android:layout_x="90dp" />
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,7 +59,67 @@
         android:textColorHint="@android:color/background_light"
         android:hint="Password"
         android:layout_above="@id/txtUserName"
-        android:layout_marginTop="46dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-</RelativeLayout>
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="0.0dp"
+        android:layout_y="215dp"
+        android:focusable="true"
+        android:layout_x="90dp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="login"
+        android:id="@+id/btnLogin"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/textview"
+        android:layout_toStartOf="@+id/textview"
+        android:layout_marginTop="1.0dp"
+        android:layout_marginBottom="160dp"
+        android:layout_y="270dp"
+        android:layout_x="100dp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:id="@+id/btnRegistroInicio"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/textview"
+        android:layout_toEndOf="@+id/textview"
+        android:layout_marginBottom="160dp"
+        android:layout_y="270dp"
+        android:layout_x="200dp" />
+    <Button
+        android:text="LOGIN WITH FACEBOOK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/txtPassword"
+        android:id="@+id/btnFacebook"
+        android:background="#4267b2"
+        android:textColor="#ffffff"
+        android:layout_y="320dp"
+        android:layout_x="115dp"
+        android:ems="10" />
+    <Button
+        android:text="LOGIN WITH LINKEDIN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imageView"
+        android:id="@+id/btnLonkedin"
+        android:textColor="#ffffff"
+        android:background="#273d6a"
+        android:layout_y="420dp"
+        android:layout_x="115dp"
+        android:ems="10" />
+    <Button
+        android:text="LOGIN WITH TWITTER"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/btnRegistroInicio"
+        android:id="@+id/btnTwitter"
+        android:layout_below="@id/btnFacebook"
+        android:background="#00acee"
+        android:textColor="#ffffff"
+        android:layout_y="370dp"
+        android:layout_x="115dp"
+        android:ems="10" />
+</AbsoluteLayout>

@@ -22,6 +22,9 @@ namespace AppGerencia
         private Button registrobtn;
         private EditText txtsign;
         private EditText txtpassw;
+
+
+
              
         
 
