@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace AppGerencia
 {
-    [Activity(Label = "Perfil de Usuario, Bienvenido")]
+    [Activity(Label = "Perfil de Usuario, Bienvenido Irazu_App_Avaluos")]
     public class UserActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

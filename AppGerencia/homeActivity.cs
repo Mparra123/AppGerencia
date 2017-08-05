@@ -13,7 +13,7 @@ using System.IO;
 
 namespace AppGerencia
 {
-    [Activity(Label = "Perfil Perito")]
+    [Activity(Label = "Perfil de Perito, Bienvenido")]
     public class homeActivity : Activity
     {
 

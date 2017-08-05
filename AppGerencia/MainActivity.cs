@@ -127,7 +127,7 @@ namespace AppGerencia
                     //var name = linkedinUser.FirstName + "" + linkedinUser.lastName;
                     //var id = linkedinUser.Id;
                     Toast.MakeText(this, "Bienvenido Usuario:", ToastLength.Long).Show();
-                    Intent intent = new Intent(this, typeof(homeActivity));
+                    Intent intent = new Intent(this, typeof(UserActivity));
                     StartActivity(intent);
                 }
             }
@@ -172,7 +172,7 @@ namespace AppGerencia
                     name = faceUser.name;
 
                     Toast.MakeText(this, "Bienvenido:" + name, ToastLength.Long).Show();
-                    Intent intent = new Intent(this, typeof(homeActivity));
+                    Intent intent = new Intent(this, typeof(UserActivity));
                     StartActivity(intent);
                     
                 }
@@ -212,7 +212,7 @@ namespace AppGerencia
                 //var twitteruser = JsonConvert.DeserializeObject<TwitterUser>(json);
 
                 Toast.MakeText(this, "Bienvenido:", ToastLength.Long).Show();
-                Intent intent = new Intent(this, typeof(homeActivity));
+                Intent intent = new Intent(this, typeof(UserActivity));
                 StartActivity(intent);
             }
         }
