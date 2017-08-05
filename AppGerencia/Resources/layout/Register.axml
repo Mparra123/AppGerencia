@@ -25,11 +25,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/txtPasswordR"
         android:hint="Password" />
-    <EditText
-        android:layout_width="match_parent"
+    <Spinner
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtRoleR"
-        android:hint="Role" />
+        android:prompt="@string/planet_prompt"
+        android:id="@+id/spiRegistro" />
     <Button
         android:text="Registrar"
         android:layout_width="match_parent"

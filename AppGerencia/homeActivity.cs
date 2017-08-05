@@ -9,10 +9,11 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using System.IO;
 
 namespace AppGerencia
 {
-    [Activity(Label = "Perfil Usuario")]
+    [Activity(Label = "Perfil Perito")]
     public class homeActivity : Activity
     {
 
@@ -31,7 +32,7 @@ namespace AppGerencia
         public void initialize()
         {
 
-
+           
             Vistatxt2 = FindViewById<ListView>(Resource.Id.listView2);
             opt = new string[] { "Bienvenido Irazu_App_Avaluos" };
             Vistatxt2.Adapter = new ArrayAdapter(this,Android.Resource.Layout.SimpleListItem1,opt);

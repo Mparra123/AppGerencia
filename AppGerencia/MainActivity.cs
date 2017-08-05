@@ -23,7 +23,7 @@ namespace AppGerencia
 
         private Button loginbtn;
         private Button registrobtn;
-        private EditText txtsign;
+        public EditText txtsign;
         private EditText txtpassw;
 
         private Button twiterButton;
@@ -225,9 +225,7 @@ namespace AppGerencia
 
         private void Loginbtn_Click(object sender, System.EventArgs e)
         {
-            //    var intent = new Intent(this, typeof(homeActivity));
-            //  StartActivity(intent);
-
+            
             try
             {
                 string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal)
@@ -241,17 +239,17 @@ namespace AppGerencia
                 if (data1 !=null)// perito
                 {
                     Console.WriteLine("Si hay gente");
-                    if (data1.role=="1")
+                    if (data1.role== "Perito")
                     {
-                        Toast.MakeText(this, "Login Success Perito", ToastLength.Short).Show();
+                        Toast.MakeText(this, "Login Success Perito", ToastLength.Long).Show();
                         var intent = new Intent(this, typeof(homeActivity));
                         StartActivity(intent);
                     }
                     else
                     {
-                        Toast.MakeText(this, "Login Success Usuario Normal", ToastLength.Short).Show();
-                        //var intent = new Intent(this, typeof(homeActivity));
-                        //StartActivity(intent);
+                        Toast.MakeText(this, "Login Success Usuario Normal", ToastLength.Long).Show();
+                        var intent = new Intent(this, typeof(UserActivity));
+                        StartActivity(intent);
                         Console.WriteLine("Usuario Normal");
                     }
                     
@@ -269,7 +267,7 @@ namespace AppGerencia
             }
             catch (Exception ex)
             {
-                Toast.MakeText(this, ex.ToString(), ToastLength.Short).Show();
+                Toast.MakeText(this, "Error de Digitos", ToastLength.Short).Show();
             }
 
 
