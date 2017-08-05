@@ -9,6 +9,8 @@ using System;
 using System.IO;
 using SQLite;
 using Xamarin.Auth;
+using Newtonsoft.Json;
+using Xamarin.Auth.AppGerencia;
 
 namespace AppGerencia
 {
@@ -27,6 +29,8 @@ namespace AppGerencia
         private Button twiterButton;
         private Button facebookButton;
         private Button linkendInButton;
+
+        public string name;
 
 
 
@@ -88,15 +92,14 @@ namespace AppGerencia
 
         private void LinkendInButton_Click(object sender, EventArgs e)
         {
-            var auth = new OAuth2Authenticator
-            (
-                clientId: "788gtml82m0qbv",
-                clientSecret: "loiTg5Rebyx6oa7v",
+            var auth = new OAuth2Authenticator(
+                clientId: "78u2krltsr812d",
+                clientSecret: "9lc0dAw0tAAwpuuX",
                 scope: "r_basicprofile",
                 authorizeUrl: new System.Uri("https://www.linkedin.com/uas/oauth2/authorization"),
-                redirectUrl: new System.Uri("https://www.youtube.com/"),
-                accessTokenUrl: new System.Uri("htpps://www.linkedin.com/uas/bauth2/accessToken")
-             );
+                redirectUrl: new System.Uri("https://www.youtube.com/c/HoussemDellai"),
+                accessTokenUrl: new System.Uri("https://www.linkendin.com/uas/oauth2/accessToken")
+                );
             auth.Completed += LinkedinAuth_CompletedAsync;
             var ui = auth.GetUI(this);
             StartActivity(ui);
@@ -105,19 +108,32 @@ namespace AppGerencia
 
         private async void LinkedinAuth_CompletedAsync(object sender, AuthenticatorCompletedEventArgs e)
         {
-            if (e.IsAuthenticated)
+
+            try
             {
-                var request = new OAuth2Request("GET", new System.Uri("https://appi.linkedin.com/v1/people/~:(id,firstName,lastName,) ?" + "format=json" + "&oauth2_access_token=" + e.Account.Properties["access_token"]),
+                if (e.IsAuthenticated)
+                {
+                    var request = new OAuth2Request("GET", new System.Uri("https://api.linkedin.com/v1/people/~:(id,firstName,lastName)?" 
+                        + "format=json" 
+                        + "&oauth2_access_token=" 
+                        + e.Account.Properties["access_token"]),
 
 
-                    null, e.Account);
+                        null, e.Account);
 
-                var linkedinresponse = await request.GetResponseAsync();
-                var json = linkedinresponse.GetResponseText();
-                //var linkedinUser = JsonConvert.DeserializeObject<LinkedinUser>(json);
-                //var name = linkedinUser.FirstName + "" + linkedinUser.lastName;
-                //var id = linkedinUser.Id;
-
+                    var linkedinresponse = await request.GetResponseAsync();
+                    var json = linkedinresponse.GetResponseText();
+                    //var linkedinUser = JsonConvert.DeserializeObject<LinkedinUser>(json);
+                    //var name = linkedinUser.FirstName + "" + linkedinUser.lastName;
+                    //var id = linkedinUser.Id;
+                    Toast.MakeText(this, "Bienvenido Usuario:", ToastLength.Long).Show();
+                    Intent intent = new Intent(this, typeof(homeActivity));
+                    StartActivity(intent);
+                }
+            }
+            catch (Exception a)
+            {
+                Toast.MakeText(this, "** Lo sentimos Ocurrio un problema **", ToastLength.Long).Show();
             }
         }
 
@@ -138,14 +154,32 @@ namespace AppGerencia
 
         private async void FaceBookAuth_CompletedAsync(object sender, AuthenticatorCompletedEventArgs e)
         {
-            if (e.IsAuthenticated)
+
+            try
             {
-                var request = new OAuth2Request("GET", new System.Uri("https://graph.facebook.com/me?fields=name,picture"),
+                if (e.IsAuthenticated)
+                {
+                    var request = new OAuth2Request("GET", new System.Uri("https://graph.facebook.com/me?fields=name,picture"),
 
-                    null, e.Account);
+                        null, e.Account);
 
-                var response = await request.GetResponseAsync();
-                var json = response.GetResponseText();
+                    var response = await request.GetResponseAsync();
+                    var json = response.GetResponseText();
+
+                    //get the profile values
+                    var faceUser = JsonConvert.DeserializeObject<FaceUser>(json);
+
+                    name = faceUser.name;
+
+                    Toast.MakeText(this, "Bienvenido:" + name, ToastLength.Long).Show();
+                    Intent intent = new Intent(this, typeof(homeActivity));
+                    StartActivity(intent);
+                    
+                }
+            }
+            catch (Exception a)
+            {
+                Toast.MakeText(this, "** Lo sentimos Ocurrio un problema **" , ToastLength.Long).Show();
             }
         }
 
@@ -176,6 +210,10 @@ namespace AppGerencia
                 var response = await request.GetResponseAsync();
                 var json = response.GetResponseText();
                 //var twitteruser = JsonConvert.DeserializeObject<TwitterUser>(json);
+
+                Toast.MakeText(this, "Bienvenido:", ToastLength.Long).Show();
+                Intent intent = new Intent(this, typeof(homeActivity));
+                StartActivity(intent);
             }
         }
 
@@ -241,5 +279,7 @@ namespace AppGerencia
         
 
     }
+
+    
 }
 

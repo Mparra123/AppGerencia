@@ -33,7 +33,7 @@ namespace AppGerencia
 
 
             Vistatxt2 = FindViewById<ListView>(Resource.Id.listView2);
-            opt = new string[] { "Bienvenido Perito" };
+            opt = new string[] { "Bienvenido Irazu_App_Avaluos" };
             Vistatxt2.Adapter = new ArrayAdapter(this,Android.Resource.Layout.SimpleListItem1,opt);
             Vistatxt2.FastScrollEnabled = true;
 
